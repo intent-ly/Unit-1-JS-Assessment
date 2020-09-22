@@ -15,7 +15,6 @@
  * Sample data expected output: `Luke Skywalker`
 */
 function getName(character) {
-  // ⭐️ Example Solution Provided For First Function ⭐️
   return character.name
 }
 
@@ -29,8 +28,7 @@ function getName(character) {
  * Sample data expected output: 5
  */
 function getFilmCount(character) {
-  // TODO: Add your code inside the functions (others below).
-
+  return character.films.length;
 }
 
 /**
@@ -42,7 +40,12 @@ function getFilmCount(character) {
  * If length is 0. Return 'none'
 */
 function getSecondStarshipName(character) {
-  // TODO: Add your code here.
+  if (character.starships.length>0){
+    return character.starships[1].name;
+  }
+  else{
+    return `none`;
+  }
 }
 
 /**
@@ -55,7 +58,7 @@ function getSecondStarshipName(character) {
  *    Result: `Luke Skywalker, 172cm, 77kg. Featured in 5 films.`
  */
 function getSummary(character) {
-  // TODO: Add your code here.
+  return `${character.name}, ${character.height}cm, ${character.mass}kg, Featured in ${character.films.length} films.`;
 }
 
 /**
@@ -67,7 +70,10 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
-  // TODO: Add your code here.
+  const total = character.vehicles.reduce((total, vehicle) =>{
+    return (total += vehicle.cost_in_credits);
+  }, 0);
+  return total;
 }
 
 /**
@@ -81,7 +87,10 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-  // TODO: Add your code here.
+  const total = character.starships.reduce((total, ships) => {
+    return (total += ships.crew + ships.passengers);
+  }, 0);
+  return total;
 }
 
 /**
@@ -98,7 +107,11 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * Given film #7, expected error: `There are only 3 Star Wars movies. Flan fiction excluded.`
 */
 function getNthFilm(character, filmNumber) {
-  // TODO: Add your code here.
+  if(character.films.length <= 3){
+    return character.films.length
+  } else{
+    return `There area only 3 Star Wars movies. Flan fiction excluded.`
+  }
 }
 
 /**
