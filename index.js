@@ -5,7 +5,7 @@
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
-const { films } = require("./data/fixtures-bundle");
+//const { films } = require("./data/fixtures-bundle");
 
 /**
  * ### Challenge `getName`
@@ -60,7 +60,7 @@ function getSecondStarshipName(character) {
  *    Result: `Luke Skywalker, 172cm, 77kg. Featured in 5 films.`
  */
 function getSummary(character) {
-  return `${character.name}, ${character.height}cm, ${character.mass}kg, Featured in ${character.films.length} films.`;
+  return `${character.name}, ${character.height}cm, ${character.mass}kg. Featured in ${character.films.length} films.`;
 }
 
 /**
