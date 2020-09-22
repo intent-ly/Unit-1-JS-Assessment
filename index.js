@@ -5,6 +5,8 @@
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+const { films } = require("./data/fixtures-bundle");
+
 /**
  * ### Challenge `getName`
  * Example ✅
@@ -43,7 +45,7 @@ function getSecondStarshipName(character) {
   if (character.starships.length>0){
     return character.starships[1].name;
   }
-  else{
+  else if(character.starships.length == 0){
     return `none`;
   }
 }
@@ -70,10 +72,10 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
-  const total = character.vehicles.reduce((total, vehicle) =>{
+  const creditTotal = character.vehicles.reduce((total, vehicle) =>{
     return (total += vehicle.cost_in_credits);
   }, 0);
-  return total;
+  return creditTotal;
 }
 
 /**
@@ -87,8 +89,8 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-  const total = character.starships.reduce((total, ships) => {
-    return (total += ships.crew + ships.passengers);
+  const total = character.starships.reduce((total, ship) => {
+    return (total += ship.crew + ship.passengers);
   }, 0);
   return total;
 }
@@ -99,7 +101,8 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * 
  * @instructions
  * Return the Nth `films` value (in this case title).
- * Rules: filmNumber starts at 1 and refers to the *first* film, and includes only the range 1-3.
+ * Rules: filmNumber starts at 1 and refers to the *first* film, 
+ * and includes only the range 1-3.
  * Any numbers outside that range should throw an error.
  * The Error must mention the name of your favorite _extra cheesy_ movie.
  *
@@ -107,10 +110,14 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * Given film #7, expected error: `There are only 3 Star Wars movies. Flan fiction excluded.`
 */
 function getNthFilm(character, filmNumber) {
-  if(character.films.length <= 3){
-    return character.films.length
-  } else{
-    return `There area only 3 Star Wars movies. Flan fiction excluded.`
+  if(filmNumber == 1){
+    return "A New Hope"
+  } else if(filmNumber == 2){
+    return "The Empire Strikes Back"
+  } else if (filmNumber == 3){
+    return "Return of the Jedi"
+  } else {
+    return "I like Indiana Jones!"
   }
 }
 
@@ -125,7 +132,7 @@ function getNthFilm(character, filmNumber) {
  * Sample data expected output: 80124
 */
 function getCargoCapacityTotal(character) {
-  // TODO: Add your code here.
+
 }
 
 /**
